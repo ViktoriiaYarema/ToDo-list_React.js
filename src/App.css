@@ -1,0 +1,41 @@
+.container{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  background: rgb(109, 46, 73);
+  background: linear-gradient(90deg, rgb(136, 65, 96) 5%, rgb(36, 62, 92) 100%); 
+  border-radius: 3%;
+  background: rgba(5, 55, 117, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(38, 41, 92, 0.37);
+  backdrop-filter: blur( 7.0px );
+  -webkit-backdrop-filter: blur( 7.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(183,50,213);
+  background: linear-gradient(90deg, rgba(183,50,213,0.5) 0%, rgba(170,34,74,0.6) 50%, rgba(255,222,0,0.5) 100%);
+}
+.btn-add{
+  background: green;
+  color:white;
+  font-weight: 700;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-add::before{
+  /* content: "";  
+  width: 50px;
+  height: 50px;
+  display: block; */
+}

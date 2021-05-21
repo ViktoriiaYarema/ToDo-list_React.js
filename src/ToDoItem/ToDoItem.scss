@@ -1,0 +1,182 @@
+.item, .new-task{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #8822b1;
+    font-weight: 300;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    display: grid;
+    grid-template-columns:   70px 1fr 70px;
+    justify-items: center;
+    align-items:center;
+    width: 85%;
+    height: 50px;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    &:hover{
+        background: rgba( 255, 255, 255, 0.60 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 9.5px );
+        -webkit-backdrop-filter: blur( 9.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    &:active{
+        background: rgba( 255, 255, 255, 0.05 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        color: antiquewhite;
+    }
+}
+.new-task {
+    grid-template-columns: 1fr 30%;
+    justify-content: start;
+    input {
+        background-color: inherit;
+        border: none;
+        font-size: 18px;
+        width: 85%;
+        justify-self: self-start;
+        color: #8822b1;
+        font-weight: 300;
+        grid-column: 1/2;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba(126, 176, 230, 0.35);
+        backdrop-filter: blur( 1.5px );
+        -webkit-backdrop-filter: blur( 1.5px );
+    }
+}
+.cheked-block {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #8822b1;
+    font-weight: 300;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    display: grid;
+    grid-template-columns:   70px 1fr 70px;
+    justify-items: center;
+    align-items:center;
+    width: 85%;
+    height: 50px;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: antiquewhite;
+}
+.btn-delete{
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background-color: #900;
+    border-radius : 5%;
+    // border: none;    
+}
+
+.title{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color:antiquewhite;
+    margin-bottom: 20px;
+}
+.checkbox__item{
+    width: 25px;
+    height: 25px;
+    border-radius:50%;
+
+}
+.checkbox{
+    position: relative;
+    top: -22%;
+}
+
+.checkbox__item{
+    position: absolute;
+    appearance: none;
+}
+
+.checkmark{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius:25%;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color:blueviolet;
+        border-radius:25%;
+        opacity: 0;
+        transition: 0.3s;
+    }
+}
+.checkbox__item:hover{
+    opacity: 1;
+    .checkmark::before{
+        opacity: 1;
+    }
+}
+.checkbox__item{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(136, 9, 98);
+    border-radius: 25%;
+    &:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    &:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+  }
+  
+.checkbox{
+    position: relative;
+    &:hover input ~ .checkmark {
+        background-color: rgb(113, 25, 134);
+    }
+    input:checked ~ .checkmark {
+        background-color: #da0cb7;
+    }
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+}
