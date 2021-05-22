@@ -1,9 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import ToDoItem from './ToDoItem/ToDoItem';
 import dataApi from './dataApi';
 
 const App = () => {
+
+  useEffect(() => {
+    if(dataItems.length === 0){
+      localStorage.clear();
+    }
+  });
+  
   let myData = [];
 
   if(localStorage.length < 1) {
@@ -18,40 +25,37 @@ const App = () => {
   
   const handleChange = id => {
     const index = dataItems.map(item => item.id).indexOf(id);  
-    const upDateToDoItems = [];
-    dataItems.map(item => {
-      return upDateToDoItems.push(item)
-    });    
-        if(upDateToDoItems[index].complete === false){
-          upDateToDoItems[index].complete = true;
-        } else {
-          upDateToDoItems[index].complete = false;
-        }
+    const upDateToDoItems = [...dataItems];
+    upDateToDoItems[index].complete = !upDateToDoItems[index].complete;
+    localStorage.setItem('dataItems', JSON.stringify(upDateToDoItems));
     setToDoItems(upDateToDoItems);
   }
 
   const addItem = () => {   
       let newId = dataItems.length + 1;
-      setToDoItems([
+      let newArr = [
         ...dataItems, 
         {
           id : newId,
           description : newItem,
           complete : false
         }
-      ]);
+      ];
+      localStorage.setItem('dataItems', JSON.stringify(newArr));
+      setToDoItems(newArr);
       setNewItem('');
   }
 
   const deleteItem = deletedItem => {   
     const upDateDeletedItems = dataItems.filter(item => item !== deletedItem);
+    localStorage.setItem('dataItems', JSON.stringify(upDateDeletedItems));
     setToDoItems(upDateDeletedItems);
   }
+
 
   const activeTasks = dataItems.filter(item => item.complete === false);
   const completedTasks = dataItems.filter(item => item.complete === true);
   const toDoList = [...activeTasks, ...completedTasks].map((item, index) => {
-    localStorage.setItem('dataItems', JSON.stringify(dataItems));
     return(
       <ToDoItem 
         key = {index}
